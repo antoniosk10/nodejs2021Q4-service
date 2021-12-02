@@ -62,6 +62,12 @@ const deleteBoardSchema = {
           message: { type: 'string' },
         },
       },
+      404: {
+        type: 'object',
+        properties: {
+          message: { type: 'string' },
+        },
+      },
     },
   },
   handler: deleteBoard,

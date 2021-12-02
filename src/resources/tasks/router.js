@@ -7,11 +7,11 @@ const {
 } = require('./schema');
 
 module.exports = (fastify, options, done) => {
-  fastify.get('/tasks', getAllTasksSchema);
-  fastify.get('/tasks/:id', getTaskSchema);
-  fastify.post('/tasks', addTaskSchema);
-  fastify.delete('/tasks/:id', deleteTaskSchema);
-  fastify.put('/tasks/:id', updateTaskSchema);
+  fastify.get('/boards/:boardId/tasks', getAllTasksSchema);
+  fastify.get('/boards/:boardId/tasks/:taskId', getTaskSchema);
+  fastify.post('/boards/:boardId/tasks', addTaskSchema);
+  fastify.delete('/boards/:boardId/tasks/:taskId', deleteTaskSchema);
+  fastify.put('/boards/:boardId/tasks/:taskId', updateTaskSchema);
 
   done();
 };

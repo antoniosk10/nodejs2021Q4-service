@@ -13,9 +13,9 @@ const taskSchema = {
     title: { type: 'string' },
     order: { type: 'number' },
     description: { type: 'string' },
-    userId: { type: 'string' },
+    userId: { type: ['string', 'null'] },
     boardId: { type: 'string' },
-    columnId: { type: 'string' },
+    columnId: { type: ['string', 'null'] },
   },
 };
 
@@ -44,21 +44,14 @@ const addTaskSchema = {
   schema: {
     body: {
       type: 'object',
-      required: [
-        'title',
-        'order',
-        'description',
-        'userId',
-        'boardId',
-        'columnId',
-      ],
+      required: ['title', 'order', 'description', 'userId', 'boardId'],
       properties: {
         title: { type: 'string' },
         order: { type: 'number' },
         description: { type: 'string' },
-        userId: { type: 'string' },
+        userId: { type: ['string', 'null'] },
         boardId: { type: 'string' },
-        columnId: { type: 'string' },
+        columnId: { type: ['string', 'null'] },
       },
     },
     response: {
@@ -98,9 +91,9 @@ const updateTaskSchema = {
         title: { type: 'string' },
         order: { type: 'number' },
         description: { type: 'string' },
-        userId: { type: 'string' },
+        userId: { type: ['string', 'null'] },
         boardId: { type: 'string' },
-        columnId: { type: 'string' },
+        columnId: { type: ['string', 'null'] },
       },
     },
     response: {

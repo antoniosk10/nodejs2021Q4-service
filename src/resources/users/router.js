@@ -8,10 +8,10 @@ const {
 
 module.exports = (fastify, options, done) => {
   fastify.get('/users', getAllUsersSchema);
-  fastify.get('/users/:id', getUserSchema);
+  fastify.get('/users/:userId', getUserSchema);
   fastify.post('/users', addUserSchema);
-  fastify.delete('/users/:id', deleteUserSchema);
-  fastify.put('/users/:id', updateUserSchema);
+  fastify.delete('/users/:userId', deleteUserSchema);
+  fastify.put('/users/:userId', updateUserSchema);
 
   done();
 };

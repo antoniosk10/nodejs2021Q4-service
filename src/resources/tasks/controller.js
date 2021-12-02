@@ -3,19 +3,25 @@ const db = require('./db');
 const findIndexElement = require('../../utils/findIndexElement');
 
 const getAllTasks = (req, res) => {
-  res.send(db);
+  const { boardId } = req.params;
+
+  res.send(db.filter((el) => el.boardId === boardId));
 };
 
 const getTask = (req, res) => {
-  const { id } = req.params;
+  const { taskId } = req.params;
+  const task = db.find((el) => el.id === taskId);
 
-  const task = db.find((el) => el.id === id);
-
-  res.send(task);
+  if (task) {
+    res.send(task);
+  } else {
+    res.code(404).send({ message: "Task doesn't exist" });
+  }
 };
 
 const addTask = (req, res) => {
-  const { title, order, description, userId, boardId, columnId } = req.body;
+  const { boardId } = req.params;
+  const { title, order, description, columnId = null, userId } = req.body;
   const task = {
     id: uuidv4(),
     title,
@@ -32,18 +38,18 @@ const addTask = (req, res) => {
 };
 
 const deleteTask = (req, res) => {
-  const { id } = req.params;
-  const index = findIndexElement(db, id);
+  const { taskId } = req.params;
+  const index = findIndexElement(db, taskId);
 
   db.splice(index, 1);
 
-  res.send({ message: `Task ${id} has been removed` });
+  res.send({ message: `Task ${taskId} has been removed` });
 };
 
 const updateTask = (req, res) => {
-  const { id } = req.params;
-  const { title, order, description, userId, boardId, columnId } = req.body;
-  const index = findIndexElement(db, id);
+  const { taskId, boardId } = req.params;
+  const { title, order, description, userId, columnId } = req.body;
+  const index = findIndexElement(db, taskId);
 
   db[index] = {
     id: db[index].id,
@@ -55,7 +61,7 @@ const updateTask = (req, res) => {
     columnId,
   };
 
-  res.send({ id, title, order, description, userId, boardId, columnId });
+  res.send({ taskId, title, order, description, userId, boardId, columnId });
 };
 
 module.exports = {
