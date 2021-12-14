@@ -1,9 +1,9 @@
 const {
-  getAllBoards,
-  getBoard,
-  addBoard,
-  deleteBoard,
-  updateBoard,
+  getAllBoardsController,
+  getBoardController,
+  addBoardController,
+  deleteBoardController,
+  updateBoardController,
 } = require('./controller');
 
 const boardSchema = {
@@ -24,7 +24,7 @@ const getAllBoardsSchema = {
       },
     },
   },
-  handler: getAllBoards,
+  handler: getAllBoardsController,
 };
 
 const getBoardSchema = {
@@ -33,7 +33,7 @@ const getBoardSchema = {
       200: boardSchema,
     },
   },
-  handler: getBoard,
+  handler: getBoardController,
 };
 
 const addBoardSchema = {
@@ -50,7 +50,7 @@ const addBoardSchema = {
       201: boardSchema,
     },
   },
-  handler: addBoard,
+  handler: addBoardController,
 };
 
 const deleteBoardSchema = {
@@ -70,7 +70,7 @@ const deleteBoardSchema = {
       },
     },
   },
-  handler: deleteBoard,
+  handler: deleteBoardController,
 };
 
 const updateBoardSchema = {
@@ -87,7 +87,7 @@ const updateBoardSchema = {
       200: boardSchema,
     },
   },
-  handler: updateBoard,
+  handler: updateBoardController,
 };
 
 module.exports = {

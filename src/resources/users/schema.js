@@ -1,9 +1,9 @@
 const {
-  getAllUsers,
-  getUser,
-  addUser,
-  deleteUser,
-  updateUser,
+  getAllUsersController,
+  getUserController,
+  addUserController,
+  deleteUserController,
+  updateUserController,
 } = require('./controller');
 
 const userSchema = {
@@ -34,7 +34,7 @@ const getAllUsersSchema = {
       },
     },
   },
-  handler: getAllUsers,
+  handler: getAllUsersController,
 };
 
 const getUserSchema = {
@@ -43,7 +43,7 @@ const getUserSchema = {
       200: userHidePassSchema,
     },
   },
-  handler: getUser,
+  handler: getUserController,
 };
 
 const addUserSchema = {
@@ -61,7 +61,7 @@ const addUserSchema = {
       201: userHidePassSchema,
     },
   },
-  handler: addUser,
+  handler: addUserController,
 };
 
 const deleteUserSchema = {
@@ -75,7 +75,7 @@ const deleteUserSchema = {
       },
     },
   },
-  handler: deleteUser,
+  handler: deleteUserController,
 };
 
 const updateUserSchema = {
@@ -93,7 +93,7 @@ const updateUserSchema = {
       200: userSchema,
     },
   },
-  handler: updateUser,
+  handler: updateUserController,
 };
 
 module.exports = {

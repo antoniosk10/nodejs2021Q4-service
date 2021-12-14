@@ -1,9 +1,9 @@
 const {
-  getAllColumns,
-  getColumn,
-  addColumn,
-  deleteColumn,
-  updateColumn,
+  getAllColumnsController,
+  getColumnController,
+  addColumnController,
+  deleteColumnController,
+  updateColumnController,
 } = require('./controller');
 
 const columnSchema = {
@@ -24,7 +24,7 @@ const getAllColumnsSchema = {
       },
     },
   },
-  handler: getAllColumns,
+  handler: getAllColumnsController,
 };
 
 const getColumnSchema = {
@@ -33,7 +33,7 @@ const getColumnSchema = {
       200: columnSchema,
     },
   },
-  handler: getColumn,
+  handler: getColumnController,
 };
 
 const addColumnSchema = {
@@ -50,7 +50,7 @@ const addColumnSchema = {
       201: columnSchema,
     },
   },
-  handler: addColumn,
+  handler: addColumnController,
 };
 
 const deleteColumnSchema = {
@@ -64,7 +64,7 @@ const deleteColumnSchema = {
       },
     },
   },
-  handler: deleteColumn,
+  handler: deleteColumnController,
 };
 
 const updateColumnSchema = {
@@ -81,7 +81,7 @@ const updateColumnSchema = {
       200: columnSchema,
     },
   },
-  handler: updateColumn,
+  handler: updateColumnController,
 };
 
 module.exports = {
