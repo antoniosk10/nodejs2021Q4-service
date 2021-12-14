@@ -1,9 +1,9 @@
 const {
-  getAllTasks,
-  getTask,
-  addTask,
-  deleteTask,
-  updateTask,
+  getAllTasksController,
+  getTaskController,
+  addTaskController,
+  deleteTaskController,
+  updateTaskController,
 } = require('./controller');
 
 const taskSchema = {
@@ -28,7 +28,7 @@ const getAllTasksSchema = {
       },
     },
   },
-  handler: getAllTasks,
+  handler: getAllTasksController,
 };
 
 const getTaskSchema = {
@@ -37,7 +37,7 @@ const getTaskSchema = {
       200: taskSchema,
     },
   },
-  handler: getTask,
+  handler: getTaskController,
 };
 
 const addTaskSchema = {
@@ -58,7 +58,7 @@ const addTaskSchema = {
       201: taskSchema,
     },
   },
-  handler: addTask,
+  handler: addTaskController,
 };
 
 const deleteTaskSchema = {
@@ -72,7 +72,7 @@ const deleteTaskSchema = {
       },
     },
   },
-  handler: deleteTask,
+  handler: deleteTaskController,
 };
 
 const updateTaskSchema = {
@@ -100,7 +100,7 @@ const updateTaskSchema = {
       200: taskSchema,
     },
   },
-  handler: updateTask,
+  handler: updateTaskController,
 };
 
 module.exports = {
